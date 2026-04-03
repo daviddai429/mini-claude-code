@@ -1,4 +1,43 @@
+# 环境配置
 .env
 .env.*
 !.env.example
+.env.local
+.env.production
+
+# 依赖
 node_modules
+bun.lockb
+
+# 构建产物
+dist
+build
+.output
+.cache
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
+npm-debug.log*
+
+# 临时文件
+.tmp
+.temp
+*.tmp
+
+# 输出目录
+output/
+
+# Claude Code 本地数据
+.claude/
+.claude/data/
+*.session
