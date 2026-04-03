@@ -12,7 +12,7 @@ export const MODEL_CONTEXT_WINDOW_DEFAULT = 200_000
 export const COMPACT_MAX_OUTPUT_TOKENS = 20_000
 
 // Default max output tokens
-const MAX_OUTPUT_TOKENS_DEFAULT = 32_000
+const MAX_OUTPUT_TOKENS_DEFAULT = 64_000
 const MAX_OUTPUT_TOKENS_UPPER_LIMIT = 64_000
 
 // Capped default for slot-reservation optimization. BQ p99 output = 4,911

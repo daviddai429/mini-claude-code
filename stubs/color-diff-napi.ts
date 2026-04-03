@@ -3,12 +3,20 @@ export type SyntaxTheme = {
 };
 
 export class ColorDiff {
+  constructor(..._args: unknown[]) {}
+  render(..._args: unknown[]): string[] | null {
+    return null;
+  }
   format(input: string): string {
     return input;
   }
 }
 
 export class ColorFile {
+  constructor(..._args: unknown[]) {}
+  render(..._args: unknown[]): string[] | null {
+    return null;
+  }
   format(input: string): string {
     return input;
   }

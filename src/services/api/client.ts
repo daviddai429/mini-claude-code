@@ -360,7 +360,14 @@ function buildFetch(
   source: string | undefined,
 ): ClientOptions['fetch'] {
   // eslint-disable-next-line eslint-plugin-n/no-unsupported-features/node-builtins
-  const inner = fetchOverride ?? globalThis.fetch
+  let inner = fetchOverride ?? globalThis.fetch
+
+  // OpenAI compatibility: wrap fetch to translate Anthropic <-> OpenAI formats
+  if (isEnvTruthy(process.env.OPENAI_COMPAT)) {
+    const { wrapFetchForOpenAICompat } = require('../../utils/openaiCompat.js') as typeof import('../../utils/openaiCompat.js')
+    inner = wrapFetchForOpenAICompat(inner)
+  }
+
   // Only send to the first-party API — Bedrock/Vertex/Foundry don't log it
   // and unknown headers risk rejection by strict proxies (inc-4029 class).
   const injectClientRequestId =
